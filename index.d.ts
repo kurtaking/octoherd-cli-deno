@@ -22,4 +22,5 @@ export type OctoherdOptions = {
 /**
  * Find all releases in a GitHub repository or organization after a specified date
  */
-export async function octoherd(options: OctoherdOptions): void;
+// @ts-ignore
+export async function octoherd(options: OctoherdOptions): Promise<void>;

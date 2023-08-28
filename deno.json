@@ -2,10 +2,6 @@
   "tasks": {
     "dev": "deno run -A cli.js -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'"
   },
-  "compilerOptions": {
-    "allowJs": true,
-    "strict": true
-  },
   "imports": {
     "@octoherd/octokit": "npm:@octoherd/octokit",
     "@octokit/auth-oauth-device": "npm:@octokit/auth-oauth-device",
@@ -18,5 +14,9 @@
     "tempy": "npm:tempy",
     "@octokit/openapi": "npm:@octokit/openapi",
     "yargs": "npm:yargs"
+  },
+  "lint": {
+    "include": ["scripts/", "bin/", "lib/"],
+    "exclude": ["**/*test.ts"]
   }
 }

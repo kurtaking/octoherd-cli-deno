@@ -1,7 +1,6 @@
-import yargs from "yargs";
-
 import { octoherd } from "../index.js";
 import runCommand from "./commands/run.js";
+import yargs from "https://deno.land/x/yargs@v17.7.2-deno/deno.ts";
 
 /**
  * Function is used by Octoherd Script modules to provide a dedicated CLI binary

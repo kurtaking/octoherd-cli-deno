@@ -3,10 +3,10 @@ source code from:
 https://github.com/octoherd/script-rename-master-branch-to-main/blob/main/script.js
 */
 
-export async function script(octokit, repository) {
+export async function script(octokit: any, repository: any) {
   if (repository.default_branch !== "master") {
     octokit.log.info(
-      `Default branch is not "master" but "${repository.default_branch}", ignoring`,
+      `Default branch is not "master" but "${repository.default_branch}", ignoring`
     );
     return;
   }
