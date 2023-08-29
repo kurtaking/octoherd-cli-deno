@@ -13,8 +13,8 @@
     "tempy": "npm:tempy@3.1.0",
     "yargs": "https://deno.land/x/yargs@v17.7.2-deno/deno.ts",
     "prettier": "npm:prettier@3.0.3",
-    "chalk": "npm:chalk@5.3.0",
-    "enquirer": "npm:enquirer@2.4.1"
+    "enquirer": "npm:enquirer@2.4.1",
+    "chalk": "npm:chalk@5.3.0"
   },
   "lint": {
     "include": ["scripts/", "bin/", "lib/"],
