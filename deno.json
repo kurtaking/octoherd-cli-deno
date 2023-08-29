@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run -A cli.js -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'"
+    "dev": "deno run -A cli.ts -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'"
   },
   "imports": {
     "@octoherd/octokit": "npm:@octoherd/octokit",
@@ -13,7 +13,8 @@
     "mkdirp": "npm:mkdirp",
     "tempy": "npm:tempy",
     "@octokit/openapi": "npm:@octokit/openapi",
-    "yargs": "npm:yargs"
+    "yargs": "npm:yargs",
+    "prettier": "npm:prettier"
   },
   "lint": {
     "include": ["scripts/", "bin/", "lib/"],

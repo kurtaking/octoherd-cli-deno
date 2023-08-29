@@ -19,9 +19,6 @@ const levelColor = {
   error: chalk.bgRed.white.bold,
 };
 
-/**
- * @param {import(".").OctoherdOptions} options
- */
 export async function octoherd(options) {
   const {
     octoherdToken,
