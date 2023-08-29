@@ -19,7 +19,7 @@ const levelColor = {
   error: chalk.bgRed.white.bold,
 };
 
-export async function octoherd(options: any) {
+export async function octoherd(options) {
   const {
     octoherdToken,
     octoherdCache = false,

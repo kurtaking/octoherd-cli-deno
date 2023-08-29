@@ -3,20 +3,18 @@
     "dev": "deno run -A cli.ts -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'"
   },
   "imports": {
-    "/": "./",
-    "./": "./",
-    "@octoherd/octokit": "npm:@octoherd/octokit",
-    "@octokit/auth-oauth-device": "npm:@octokit/auth-oauth-device",
-    "@octokit/openapi-types": "npm:@octokit/openapi-types",
-    "chalk": "npm:chalk",
-    "clipboardy": "npm:clipboardy",
-    "enquirer": "npm:enquirer",
-    "jsonfile": "npm:jsonfile",
-    "mkdirp": "npm:mkdirp",
-    "tempy": "npm:tempy",
-    "@octokit/openapi": "npm:@octokit/openapi",
-    "yargs": "npm:yargs",
-    "prettier": "npm:prettier"
+    "@octoherd/octokit": "npm:@octoherd/octokit@4.0.0",
+    "@octokit/auth-oauth-device": "npm:@octokit/auth-oauth-device@6.0.0",
+    "@octokit/openapi-types": "npm:@octokit/openapi-types@18.0.0",
+    "@octokit/openapi": "npm:@octokit/openapi@12.0.0",
+    "clipboardy": "npm:clipboardy@3.0.0",
+    "jsonfile": "npm:jsonfile@6.1.0",
+    "mkdirp": "npm:mkdirp@3.0.1",
+    "tempy": "npm:tempy@3.1.0",
+    "yargs": "https://deno.land/x/yargs@v17.7.2-deno/deno.ts",
+    "prettier": "npm:prettier@3.0.3",
+    "chalk": "npm:chalk@5.3.0",
+    "enquirer": "npm:enquirer@2.4.1"
   },
   "lint": {
     "include": ["scripts/", "bin/", "lib/"],
