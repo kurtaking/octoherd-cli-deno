@@ -1,16 +1,15 @@
-import { appendFileSync } from "node:fs";
-import { Octokit } from "@octoherd/octokit";
-import { createOAuthDeviceAuth } from "@octokit/auth-oauth-device";
+import { appendFileSync } from "https://deno.land/std@0.53.0/node/fs.ts";
+import { Octokit } from "octoherd/octokit";
+import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
 import chalk from "chalk";
-import { temporaryFile } from "tempy";
-import clipboardy from "clipboardy";
+import * as clippy from "clippy";
 import enquirer from "enquirer";
 import { cache as octokitCachePlugin } from "./lib/octokit-plugin-cache.js";
 import { requestLog } from "./lib/octokit-plugin-request-log.js";
 import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
 import { runScriptAgainstRepositories } from "./lib/run-script-against-repositories.js";
 
-export { Octokit } from "@octoherd/octokit";
+export { Octokit } from "octoherd/octokit";
 
 const levelColor = {
   debug: chalk.bgGray.black,
@@ -30,7 +29,7 @@ export async function octoherd(options) {
     ...userOptions
   } = options;
 
-  const tmpLogFile = temporaryFile({ extension: "ndjson.log" });
+  const tmpLogFile = await Deno.makeTempFile({ extension: "ndjson.log" });
 
   const plugins = [requestLog, requestConfirm];
   if (typeof octoherdCache === "string") plugins.push(octokitCachePlugin);
@@ -48,7 +47,7 @@ export async function octoherd(options) {
           async onVerification({ verification_uri, user_code }) {
             console.log("Open %s", verification_uri);
 
-            await clipboardy.write(user_code);
+            await clippy.write_text(user_code);
             console.log("Paste code: %s (copied to your clipboard)", user_code);
 
             console.log(

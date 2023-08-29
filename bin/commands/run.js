@@ -1,7 +1,7 @@
 import { resolve } from "node:path";
 
 import chalk from "chalk";
-import { VERSION as OctokitVersion } from "@octoherd/octokit";
+import { VERSION as OctokitVersion } from "octoherd/octokit";
 
 const VERSION = "0.0.0-development";
 
