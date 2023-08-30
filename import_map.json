@@ -3,16 +3,15 @@
     "octoherd/octokit": "npm:@octoherd/octokit@^4.0.0",
     "octokit/auth-oauth-device": "npm:@octokit/auth-oauth-device@^6.0.0",
     "octokit/openapi-types": "npm:@octokit/openapi-types@^8.0.0",
-    "chalk/": "npm:chalk@^5.0.0",
-    "clipboardy/": "npm:clipboardy@^3.0.0",
-    "enquirer/": "npm:enquirer@^2.3.6",
-    "jsonfile/": "npm:jsonfile@^6.0.1",
-    "mkdirp/": "npm:mkdirp@^3.0.0",
-    "tempy/": "npm:tempy@^3.0.0",
-    "yargs/": "npm:yargs@^17.0.0",
-    "octokit/openapi/": "npm:octokit/openapi@^12.0.0",
-    "prettier/": "npm:prettier@^3.0.0",
-    "simple-mock/": "npm:simple-mock@^0.8.0",
-    "uvu/": "npm:uvu@^0.5.1"
+    "octokit/openapi": "npm:@octokit/openapi@^12.0.0",
+    "chalk": "npm:chalk@^5.0.0",
+    "clipboardy": "npm:clipboardy@^3.0.0",
+    "yargs": "npm:yargs@^17.0.0",
+    "yargs/helpers": "npm:yargs@^17.0.0/helpers",
+    "enquirer": "npm:enquirer@^2.3.6",
+    "jsonfile": "npm:jsonfile@^6.0.1",
+    "mkdirp": "npm:mkdirp@^3.0.0",
+    "tempy": "npm:tempy@^3.0.0",
+    "prettier": "npm:prettier@^3.0.0"
   }
 }

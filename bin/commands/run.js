@@ -109,12 +109,14 @@ const runCommand = {
       }),
   handler: () => {
     console.log(
-      `\n${chalk.bold("Running @octoherd/cli v%s")} ${chalk.gray(
-        "(@octoherd/octokit v%s, Deno: %s)"
-      )}\n`,
+      `\n${chalk.bold("Running @octoherd/cli v%s")} ${
+        chalk.gray(
+          "(@octoherd/octokit v%s, Deno: %s)",
+        )
+      }\n`,
       VERSION,
       OctokitVersion,
-      Deno.version.deno
+      Deno.version.deno,
     );
   },
 };

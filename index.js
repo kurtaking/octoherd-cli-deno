@@ -1,7 +1,7 @@
 import { appendFileSync } from "node:fs";
 
-import { Octokit } from "npm:@octoherd/octokit@^4.0.0";
-import { createOAuthDeviceAuth } from "npm:@octokit/auth-oauth-device@^6.0.0";
+import { Octokit } from "octoherd/octokit";
+import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
 import chalk from "chalk";
 import { temporaryFile } from "tempy";
 import clipboardy from "clipboardy";
@@ -13,7 +13,7 @@ import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
 import { runScriptAgainstRepositories } from "./lib/run-script-against-repositories.js";
 import { VERSION } from "./version.js";
 
-export { Octokit } from "npm:@octoherd/octokit@^4.0.0";
+export { Octokit } from "octoherd/octokit";
 
 const levelColor = {
   debug: chalk.bgGray.black,
@@ -83,7 +83,7 @@ export async function octoherd(options) {
       bypassConfirms: octoherdBypassConfirms,
       onLogMessage(level, message, additionalData) {
         // ignore the `octoherd` property in meta data
-        const { octoherd, ...meta } = additionalData;
+        const { _octoherd, ...meta } = additionalData;
         let additionalDataString = JSON.stringify(meta);
 
         if (additionalDataString.length > 300) {
