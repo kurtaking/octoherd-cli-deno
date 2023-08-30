@@ -1,7 +1,7 @@
 import { appendFileSync } from "node:fs";
 
-import { Octokit } from "octoherd/octokit";
-import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
+import { Octokit } from "npm:@octoherd/octokit@^4.0.0";
+import { createOAuthDeviceAuth } from "npm:@octokit/auth-oauth-device@^6.0.0";
 import chalk from "chalk";
 import { temporaryFile } from "tempy";
 import clipboardy from "clipboardy";
@@ -13,7 +13,7 @@ import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
 import { runScriptAgainstRepositories } from "./lib/run-script-against-repositories.js";
 import { VERSION } from "./version.js";
 
-export { Octokit } from "octoherd/octokit";
+export { Octokit } from "npm:@octoherd/octokit@^4.0.0";
 
 const levelColor = {
   debug: chalk.bgGray.black,
@@ -26,6 +26,8 @@ const levelColor = {
  * @param {import(".").OctoherdOptions} options
  */
 export async function octoherd(options) {
+  console.log("entering octoherd, options: ", options);
+
   const {
     octoherdToken,
     octoherdCache = false,
