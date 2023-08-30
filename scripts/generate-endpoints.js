@@ -20,6 +20,6 @@ await writeFile(
   PATH,
   prettier.format(`export const ENDPOINTS = ${JSON.stringify(ENDPOINTS)}`, {
     parser: "babel",
-  }),
+  })
 );
 console.log("%s updated", PATH);

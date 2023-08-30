@@ -1,45 +1,18 @@
 {
   "imports": {
-    "clippy": "https://deno.land/x/clippy@v0.2.2/mod.ts",
-    "yargs": "https://deno.land/x/yargs@v17.7.2-deno/deno.ts",
-    "octoherd/octokit": "https://esm.sh/v131/*@octoherd/octokit@4.0.0",
-    "octokit/auth-oauth-device": "https://esm.sh/v131/*@octokit/auth-oauth-device@6.0.0",
-    "octokit/openapi-types": "https://esm.sh/v131/@octokit/openapi-types@18.0.0",
-    "octokit/openapi": "https://esm.sh/v131/@octokit/openapi@12.0.0",
-    "chalk": "https://esm.sh/v131/chalk@5.3.0",
+    "octoherd/octokit": "npm:@octoherd/octokit@^4.0.0",
+    "octokit/auth-oauth-device": "npm:@octokit/auth-oauth-device@^6.0.0",
+    "octokit/openapi-types": "npm:@octokit/openapi-types@^8.0.0",
+    "chalk": "npm:chalk@^5.0.0",
+    "clipboardy": "npm:clipboardy@^3.0.0",
     "enquirer": "npm:enquirer@^2.3.6",
-    "events": "https://esm.sh/v131/events@3.3.0",
-    "graceful-fs": "https://esm.sh/v131/graceful-fs@4.2.11",
-    "mkdirp": "https://esm.sh/v131/mkdirp@3.0.1",
-    "prettier": "https://esm.sh/v131/prettier@3.0.3",
-    "readline": "https://esm.sh/v131/readline@1.3.0"
-  },
-  "scopes": {
-    "https://esm.sh/v131/": {
-      "@octokit/core": "https://esm.sh/v131/@octokit/core@5.0.0",
-      "@octokit/oauth-methods": "https://esm.sh/v131/@octokit/oauth-methods@4.0.0",
-      "@octokit/plugin-paginate-rest": "https://esm.sh/v131/@octokit/plugin-paginate-rest@8.0.0",
-      "@octokit/plugin-retry": "https://esm.sh/v131/@octokit/plugin-retry@6.0.0",
-      "@octokit/plugin-throttling": "https://esm.sh/v131/@octokit/plugin-throttling@7.0.0",
-      "@octokit/request": "https://esm.sh/v131/@octokit/request@8.1.1",
-      "@octokit/types": "https://esm.sh/v131/@octokit/types@11.1.0",
-      "ansi-colors": "https://esm.sh/v131/ansi-colors@4.1.3",
-      "arch": "https://esm.sh/v131/arch@2.2.0",
-      "es6-object-assign": "https://esm.sh/v131/es6-object-assign@1.1.0",
-      "execa": "https://esm.sh/v131/execa@5.1.1",
-      "is-nan": "https://esm.sh/v131/is-nan@1.3.2",
-      "is-stream": "https://esm.sh/v131/is-stream@3.0.0",
-      "is-wsl": "https://esm.sh/v131/is-wsl@2.2.0",
-      "object-is": "https://esm.sh/v131/object-is@1.1.5",
-      "quick-format-unescaped": "https://esm.sh/v131/quick-format-unescaped@4.0.4",
-      "semantic-release-plugin-update-version-in-files": "https://esm.sh/v131/semantic-release-plugin-update-version-in-files@1.1.0",
-      "strip-ansi": "https://esm.sh/v131/strip-ansi@6.0.1",
-      "temp-dir": "https://esm.sh/v131/temp-dir@3.0.0",
-      "type-fest": "https://esm.sh/v131/type-fest@2.19.0",
-      "unique-string": "https://esm.sh/v131/unique-string@3.0.0",
-      "universal-user-agent": "https://esm.sh/v131/universal-user-agent@6.0.0",
-      "universalify": "https://esm.sh/v131/universalify@2.0.0",
-      "util": "https://esm.sh/v131/util@0.12.5"
-    }
+    "jsonfile": "npm:jsonfile@^6.0.1",
+    "mkdirp": "npm:mkdirp@^3.0.0",
+    "tempy": "npm:tempy@^3.0.0",
+    "yargs": "npm:yargs@^17.0.0",
+    "octokit/openapi": "npm:octokit/openapi@^12.0.0",
+    "prettier": "npm:prettier@^3.0.0",
+    "simple-mock": "npm:simple-mock@^0.8.0",
+    "uvu": "npm:uvu@^0.5.1"
   }
 }

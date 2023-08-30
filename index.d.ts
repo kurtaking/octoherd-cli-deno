@@ -1,6 +1,6 @@
-import { components } from "octokit/openapi-types";
+import { components } from "@octokit/openapi-types";
 
-export { Octokit } from "octoherd/octokit";
+export { Octokit } from "@octoherd/octokit";
 export type Repository = components["schemas"]["repository"];
 
 export type OctoherdOptions = {
@@ -22,5 +22,4 @@ export type OctoherdOptions = {
 /**
  * Find all releases in a GitHub repository or organization after a specified date
  */
-// @ts-ignore
-export async function octoherd(options: OctoherdOptions): Promise<void>;
+export async function octoherd(options: OctoherdOptions): void;
