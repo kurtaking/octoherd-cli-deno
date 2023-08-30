@@ -1,6 +1,6 @@
 import { appendFileSync } from "node:fs";
 
-import { Octokit } from "octoherd/octokit";
+import { Octokit } from "@octoherd/octokit";
 import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
 import chalk from "chalk";
 import { temporaryFile } from "tempy";
@@ -13,7 +13,7 @@ import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
 import { runScriptAgainstRepositories } from "./lib/run-script-against-repositories.js";
 import { VERSION } from "./version.js";
 
-export { Octokit } from "octoherd/octokit";
+export { Octokit } from "@octoherd/octokit";
 
 const levelColor = {
   debug: chalk.bgGray.black,
