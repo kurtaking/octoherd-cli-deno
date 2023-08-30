@@ -1,13 +1,5 @@
 {
   "tasks": {
-    "dev": "deno run -A --unstable cli.ts -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'",
-    "esm:add": "deno run -A https://esm.sh/v131 add",
-    "esm:update": "deno run -A https://esm.sh/v131 update",
-    "esm:remove": "deno run -A https://esm.sh/v131 remove"
-  },
-  "lint": {
-    "include": ["scripts/", "bin/", "lib/"],
-    "exclude": ["**/*test.ts"]
-  },
-  "importMap": "import_map.json"
+    "dev": "deno run -A --import-map ./import_map.json cli.js -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'"
+  }
 }
