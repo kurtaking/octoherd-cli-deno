@@ -1,9 +1,9 @@
 import yargs from "yargs";
 import chalk from "chalk";
 
-import { octoherd } from "../index.js";
-import { VERSION } from "../version.js";
-import runCommand from "./commands/run.js";
+import { octoherd } from "./index.js";
+import { VERSION } from "./version.js";
+import runCommand from "./bin/commands/run.js";
 
 const EPILOG = chalk.gray(`Questions? Ideas? Feedback?
 https://github.com/octoherd/octoherd/discussions
