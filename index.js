@@ -1,7 +1,6 @@
 import { appendFileSync } from "node:fs";
 import { Octokit } from "@octoherd/octokit";
 import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
-import chalk from "chalk";
 import { temporaryFile } from "tempy";
 import clipboardy from "clipboardy";
 import enquirer from "enquirer";
@@ -10,15 +9,9 @@ import { requestLog } from "./lib/octokit-plugin-request-log.js";
 import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
 import { runScriptAgainstRepositories } from "./lib/run-script-against-repositories.js";
 import { VERSION } from "./version.js";
+import { gray } from "fmt/colors.ts";
 
 export { Octokit } from "@octoherd/octokit";
-
-const levelColor = {
-  debug: chalk.bgGray.black,
-  info: chalk.bgGreen.black,
-  warn: chalk.bgYellow.black,
-  error: chalk.bgRed.white.bold,
-};
 
 /**
  * @param {import(".").OctoherdOptions} options
@@ -40,35 +33,35 @@ export async function octoherd(options) {
   if (typeof octoherdCache === "string") plugins.push(octokitCachePlugin);
   const CliOctokit = Octokit.plugin(...plugins);
 
-  const authOptions = octoherdToken ? { auth: octoherdToken } : {
-    authStrategy: createOAuthDeviceAuth,
-    auth: {
-      // Octoherd's OAuth App
-      clientId: "e93735961b3b72ca5c02",
-      clientType: "oauth-app",
-      scopes: ["repo"],
-      async onVerification({ verification_uri, user_code }) {
-        console.log("Open %s", verification_uri);
+  const authOptions = octoherdToken
+    ? { auth: octoherdToken }
+    : {
+        authStrategy: createOAuthDeviceAuth,
+        auth: {
+          // Octoherd's OAuth App
+          clientId: "e93735961b3b72ca5c02",
+          clientType: "oauth-app",
+          scopes: ["repo"],
+          async onVerification({ verification_uri, user_code }) {
+            console.log("Open %s", verification_uri);
 
-        await clipboardy.write(user_code);
-        console.log("Paste code: %s (copied to your clipboard)", user_code);
+            await clipboardy.write(user_code);
+            console.log("Paste code: %s (copied to your clipboard)", user_code);
 
-        console.log(
-          `\n${
-            chalk.gray(
-              "To avoid this prompt, pass a token with --octoherd-token or -T",
-            )
-          }\n`,
-        );
+            console.log(
+              `\n${gray(
+                "To avoid this prompt, pass a token with --octoherd-token or -T"
+              )}\n`
+            );
 
-        const prompt = new enquirer.Input({
-          message: "Press <enter> when ready",
-        });
+            const prompt = new enquirer.Input({
+              message: "Press <enter> when ready",
+            });
 
-        await prompt.run();
-      },
-    },
-  };
+            await prompt.run();
+          },
+        },
+      };
 
   const octokit = new CliOctokit({
     ...authOptions,
@@ -87,10 +80,9 @@ export async function octoherd(options) {
         }
 
         console.log(
-          levelColor[level](" " + level.toUpperCase() + " "),
           Object.keys(meta).length
-            ? `${message} ${chalk.gray(additionalDataString)}`
-            : message,
+            ? `${message} ${gray(additionalDataString)}`
+            : message
         );
       },
       onLogData(data) {
@@ -114,14 +106,14 @@ export async function octoherd(options) {
   await runScriptAgainstRepositories(state, octoherdRepos);
 
   console.log("");
-  console.log(chalk.gray("-".repeat(80)));
+  console.log(gray("-".repeat(80)));
   console.log("");
   console.log(`Log file written to ${tmpLogFile}`);
 
   if ("octoherdCache" in options) {
     console.log(
       "Request cache written to %s",
-      options.octoherdCache || "./cache",
+      options.octoherdCache || "./cache"
     );
   }
 }
