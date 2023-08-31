@@ -1,12 +1,10 @@
 import { appendFileSync } from "node:fs";
-
 import { Octokit } from "@octoherd/octokit";
 import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
 import chalk from "chalk";
 import { temporaryFile } from "tempy";
 import clipboardy from "clipboardy";
 import enquirer from "enquirer";
-
 import { cache as octokitCachePlugin } from "./lib/octokit-plugin-cache.js";
 import { requestLog } from "./lib/octokit-plugin-request-log.js";
 import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
@@ -26,8 +24,6 @@ const levelColor = {
  * @param {import(".").OctoherdOptions} options
  */
 export async function octoherd(options) {
-  console.log("entering octoherd, options: ", options);
-
   const {
     octoherdToken,
     octoherdCache = false,
@@ -44,35 +40,35 @@ export async function octoherd(options) {
   if (typeof octoherdCache === "string") plugins.push(octokitCachePlugin);
   const CliOctokit = Octokit.plugin(...plugins);
 
-  const authOptions = octoherdToken
-    ? { auth: octoherdToken }
-    : {
-        authStrategy: createOAuthDeviceAuth,
-        auth: {
-          // Octoherd's OAuth App
-          clientId: "e93735961b3b72ca5c02",
-          clientType: "oauth-app",
-          scopes: ["repo"],
-          async onVerification({ verification_uri, user_code }) {
-            console.log("Open %s", verification_uri);
+  const authOptions = octoherdToken ? { auth: octoherdToken } : {
+    authStrategy: createOAuthDeviceAuth,
+    auth: {
+      // Octoherd's OAuth App
+      clientId: "e93735961b3b72ca5c02",
+      clientType: "oauth-app",
+      scopes: ["repo"],
+      async onVerification({ verification_uri, user_code }) {
+        console.log("Open %s", verification_uri);
 
-            await clipboardy.write(user_code);
-            console.log("Paste code: %s (copied to your clipboard)", user_code);
+        await clipboardy.write(user_code);
+        console.log("Paste code: %s (copied to your clipboard)", user_code);
 
-            console.log(
-              `\n${chalk.gray(
-                "To avoid this prompt, pass a token with --octoherd-token or -T"
-              )}\n`
-            );
+        console.log(
+          `\n${
+            chalk.gray(
+              "To avoid this prompt, pass a token with --octoherd-token or -T",
+            )
+          }\n`,
+        );
 
-            const prompt = new enquirer.Input({
-              message: "Press <enter> when ready",
-            });
+        const prompt = new enquirer.Input({
+          message: "Press <enter> when ready",
+        });
 
-            await prompt.run();
-          },
-        },
-      };
+        await prompt.run();
+      },
+    },
+  };
 
   const octokit = new CliOctokit({
     ...authOptions,
@@ -94,7 +90,7 @@ export async function octoherd(options) {
           levelColor[level](" " + level.toUpperCase() + " "),
           Object.keys(meta).length
             ? `${message} ${chalk.gray(additionalDataString)}`
-            : message
+            : message,
         );
       },
       onLogData(data) {
@@ -125,7 +121,7 @@ export async function octoherd(options) {
   if ("octoherdCache" in options) {
     console.log(
       "Request cache written to %s",
-      options.octoherdCache || "./cache"
+      options.octoherdCache || "./cache",
     );
   }
 }
