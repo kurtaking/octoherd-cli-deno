@@ -1,3 +1,4 @@
+import { script } from "./examples/script.ts";
 import { run } from "./bin/run.js";
 
-run(Deno.args[0]);
+run(script);

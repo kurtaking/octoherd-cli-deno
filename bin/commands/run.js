@@ -1,5 +1,6 @@
 import { resolve } from "node:path";
-import { gray, bold } from "fmt/colors.ts";
+
+import chalk from "chalk";
 import { VERSION as OctokitVersion } from "@octoherd/octokit";
 
 import { VERSION } from "../../version.js";
@@ -108,12 +109,14 @@ const runCommand = {
       }),
   handler: () => {
     console.log(
-      `\n${bold("Running @octoherd/cli v%s")} ${gray(
-        "(@octoherd/octokit v%s, Deno: %s)"
-      )}\n`,
+      `\n${chalk.bold("Running @octoherd/cli v%s")} ${
+        chalk.gray(
+          "(@octoherd/octokit v%s, Deno: %s)",
+        )
+      }\n`,
       VERSION,
       OctokitVersion,
-      Deno.version.deno
+      Deno.version.deno,
     );
   },
 };

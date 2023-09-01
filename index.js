@@ -1,17 +1,26 @@
 import { appendFileSync } from "node:fs";
+
 import { Octokit } from "@octoherd/octokit";
 import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
+import chalk from "chalk";
 import { temporaryFile } from "tempy";
 import clipboardy from "clipboardy";
 import enquirer from "enquirer";
+
 import { cache as octokitCachePlugin } from "./lib/octokit-plugin-cache.js";
 import { requestLog } from "./lib/octokit-plugin-request-log.js";
 import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
 import { runScriptAgainstRepositories } from "./lib/run-script-against-repositories.js";
 import { VERSION } from "./version.js";
-import { gray } from "fmt/colors.ts";
 
 export { Octokit } from "@octoherd/octokit";
+
+const levelColor = {
+  debug: chalk.bgGray.black,
+  info: chalk.bgGreen.black,
+  warn: chalk.bgYellow.black,
+  error: chalk.bgRed.white.bold,
+};
 
 /**
  * @param {import(".").OctoherdOptions} options
@@ -49,7 +58,7 @@ export async function octoherd(options) {
             console.log("Paste code: %s (copied to your clipboard)", user_code);
 
             console.log(
-              `\n${gray(
+              `\n${chalk.gray(
                 "To avoid this prompt, pass a token with --octoherd-token or -T"
               )}\n`
             );
@@ -80,8 +89,9 @@ export async function octoherd(options) {
         }
 
         console.log(
+          levelColor[level](" " + level.toUpperCase() + " "),
           Object.keys(meta).length
-            ? `${message} ${gray(additionalDataString)}`
+            ? `${message} ${chalk.gray(additionalDataString)}`
             : message
         );
       },
@@ -106,7 +116,7 @@ export async function octoherd(options) {
   await runScriptAgainstRepositories(state, octoherdRepos);
 
   console.log("");
-  console.log(gray("-".repeat(80)));
+  console.log(chalk.gray("-".repeat(80)));
   console.log("");
   console.log(`Log file written to ${tmpLogFile}`);
 
