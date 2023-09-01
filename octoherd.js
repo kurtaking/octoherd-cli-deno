@@ -1,14 +1,10 @@
-import yargs from "https://deno.land/x/yargs@v17.7.2-deno/deno.ts";
 import chalk from "chalk";
+import yargs from "yargs";
+import { gray } from "fmt/colors.ts";
 
 import { octoherd } from "./index.js";
 import { VERSION } from "./version.js";
 import runCommand from "./bin/commands/run.js";
-
-const EPILOG = chalk.gray(`Questions? Ideas? Feedback?
-https://github.com/octoherd/octoherd/discussions
-
-Copyright 2020-${new Date().getFullYear()} Octoherd Contributors`);
 
 const argv = await yargs(Deno.args)
   .command(runCommand)

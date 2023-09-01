@@ -52,8 +52,10 @@ export async function script(octokit, repository, options) {
 }
 ```
 
-- `octokit` is an instance of [`octokit.js`'s Octokit](https://github.com/octokit/octokit.js)
-- `repository` is the response data of [`GET /repos/{owner}/{repo}`](https://developer.github.com/v3/repos/#get-a-repository)
+- `octokit` is an instance of
+  [`octokit.js`'s Octokit](https://github.com/octokit/octokit.js)
+- `repository` is the response data of
+  [`GET /repos/{owner}/{repo}`](https://developer.github.com/v3/repos/#get-a-repository)
 - `options` are all options passed to the CLI which are not used by `octoherd`.
 
 ## Examples
@@ -62,8 +64,10 @@ export async function script(octokit, repository, options) {
 
 ## Similar projects
 
-- [NerdWalletOSS/shepherd](https://github.com/NerdWalletOSS/shepherd) - A utility for applying code changes across many repositories.
-- [FormidableLabs/multibot](https://github.com/FormidableLabs/multibot) - A friendly multi-repository robot
+- [NerdWalletOSS/shepherd](https://github.com/NerdWalletOSS/shepherd) - A
+  utility for applying code changes across many repositories.
+- [FormidableLabs/multibot](https://github.com/FormidableLabs/multibot) - A
+  friendly multi-repository robot
 
 ## License
 
