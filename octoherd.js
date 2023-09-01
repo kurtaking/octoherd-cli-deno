@@ -10,14 +10,14 @@ https://github.com/octoherd/octoherd/discussions
 
 Copyright 2020-${new Date().getFullYear()} Octoherd Contributors`);
 
-const { argv } = yargs(Deno.args)
+const argv = await yargs(Deno.args)
   .command(runCommand)
   .demandCommand()
   .version(VERSION)
-  .epilog(EPILOG);
+  .epilog(EPILOG)
+  .parse();
 
 try {
-  console.log("1", "is this first?");
   octoherd(argv);
 } catch (error) {
   console.error({ error });
