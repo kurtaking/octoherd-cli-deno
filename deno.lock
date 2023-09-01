@@ -146,7 +146,9 @@
     "https://deno.land/x/yargs_parser@v20.2.4-deno/build/lib/string-utils.js": "12fc056b23703bc370aae5b179dc5abee53fca277abc30eaf76f78d2546d6413",
     "https://deno.land/x/yargs_parser@v20.2.4-deno/build/lib/tokenize-arg-string.js": "7e0875b11795b8e217386e45f14b24a6e501ebbc62e15aa469aa8829d4d0ee61",
     "https://deno.land/x/yargs_parser@v20.2.4-deno/build/lib/yargs-parser.js": "453200a7dfbb002e605d8009b7dad30f2b1d93665e046ab89c073a4fe63dfd48",
-    "https://deno.land/x/yargs_parser@v20.2.4-deno/deno.ts": "ad53c0c82c3982c4fc5be9472384b259e0a32ce1f7ae0f68de7b2445df5642fc"
+    "https://deno.land/x/yargs_parser@v20.2.4-deno/deno.ts": "ad53c0c82c3982c4fc5be9472384b259e0a32ce1f7ae0f68de7b2445df5642fc",
+    "https://esm.sh/v131/chalk@5.3.0": "9664d9f9a4c9b85d5f9574e7e4088f96a7c810eccad8f398f51eed5cc8d89c46",
+    "https://esm.sh/v131/chalk@5.3.0/denonext/chalk.mjs": "3943aef3775b1bb1c19ed547ef6d4ab66cb3f417595fd1dd70366878607cf9bf"
   },
   "npm": {
     "specifiers": {
