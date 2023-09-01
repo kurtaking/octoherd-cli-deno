@@ -5,5 +5,6 @@
   "imports": {
     "/": "./",
     "./": "./"
-  }
+  },
+  "importMap": "./import_map.json"
 }
