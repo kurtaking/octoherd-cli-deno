@@ -4,6 +4,7 @@
     "octokit/auth-oauth-device": "npm:@octokit/auth-oauth-device@^6.0.0",
     "octokit/openapi-types": "npm:@octokit/openapi-types@^8.0.0",
     "clipboardy": "npm:clipboardy@^3.0.0",
+    "chalk": "https://esm.sh/v131/chalk@5.3.0",
     "enquirer": "npm:enquirer@^2.3.6",
     "jsonfile": "npm:jsonfile@^6.0.1",
     "mkdirp": "npm:mkdirp@^3.0.0",
