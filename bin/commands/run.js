@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
 
-import chalk from "chalk";
+import chalk from "npm:chalk@^5.0.0";
 import { VERSION as OctokitVersion } from "@octoherd/octokit";
 
 import { VERSION } from "../../version.js";
