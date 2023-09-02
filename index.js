@@ -1,7 +1,7 @@
 import { appendFileSync } from "node:fs";
 
 import { Octokit } from "@octoherd/octokit";
-import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
+import { createOAuthDeviceAuth } from "npm:@octokit/auth-oauth-device@^6.0.0";
 import chalk from "npm:chalk@^5.0.0";
 import { temporaryFile } from "npm:tempy@^3.0.0";
 import clipboardy from "npm:clipboardy@^3.0.0";
