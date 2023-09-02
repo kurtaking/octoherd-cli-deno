@@ -1,4 +1,4 @@
-import yargs from "https://deno.land/x/yargs@v17.7.2-deno/deno.ts";
+import { yargs } from "./deps.ts";
 import { octoherd } from "./index.js";
 import runCommand from "./bin/commands/run.js";
 

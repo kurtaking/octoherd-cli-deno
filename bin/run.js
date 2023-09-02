@@ -1,4 +1,4 @@
-import yargs from "https://deno.land/x/yargs@v17.7.2-deno/deno.ts";
+import { yargs } from "../deps.ts";
 import { hideBin } from "npm:yargs@^17.0.0/helpers";
 
 import { octoherd } from "../index.js";
