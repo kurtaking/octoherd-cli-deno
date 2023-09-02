@@ -84,6 +84,7 @@ const runCommand = {
 
         let scriptModule;
         const path = resolve(Deno.cwd(), script);
+        console.log({ path });
 
         try {
           scriptModule = await import(path);
