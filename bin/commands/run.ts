@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
 import chalk from "npm:chalk@^5.0.0";
-import { VERSION } from "../../version.js";
+import { VERSION } from "../../version.ts";
 
 const VERSIONS = `
 @octoherd/cli:     v${VERSION}
@@ -48,7 +48,6 @@ const options = {
   },
 };
 
-/** @type import('yargs').CommandModule */
 const runCommand = {
   command: "run",
   describe: "",
@@ -77,7 +76,7 @@ const runCommand = {
       ])
       .options(options)
       .version(VERSIONS)
-      .coerce("octoherd-script", async (script) => {
+      .coerce("octoherd-script", async (script: Function) => {
         if (!script) return;
 
         if (typeof script === "function") return script;

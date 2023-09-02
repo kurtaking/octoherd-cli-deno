@@ -1,31 +1,26 @@
 import { appendFileSync } from "node:fs";
-
 import { Octokit } from "npm:@octoherd/octokit@^4.0.0";
 import { createOAuthDeviceAuth } from "npm:@octokit/auth-oauth-device@^6.0.0";
-import chalk from "npm:chalk@^5.0.0";
+import chalk, { ChalkInstance } from "npm:chalk@^5.0.0";
 import { temporaryFile } from "npm:tempy@^3.0.0";
 import clipboardy from "npm:clipboardy@^3.0.0";
 import enquirer from "npm:enquirer@^2.3.6";
-
 import { cache as octokitCachePlugin } from "./lib/octokit-plugin-cache.js";
 import { requestLog } from "./lib/octokit-plugin-request-log.js";
 import { requestConfirm } from "./lib/octokit-plugin-request-confirm.js";
 import { runScriptAgainstRepositories } from "./lib/run-script-against-repositories.js";
-import { VERSION } from "./version.js";
+import { VERSION } from "./version.ts";
 
 export { Octokit } from "npm:@octoherd/octokit@^4.0.0";
 
-const levelColor = {
+const levelColor: Record<string, ChalkInstance> = {
   debug: chalk.bgGray.black,
   info: chalk.bgGreen.black,
   warn: chalk.bgYellow.black,
   error: chalk.bgRed.white.bold,
 };
 
-/**
- * @param {import(".").OctoherdOptions} options
- */
-export async function octoherd(options) {
+export async function octoherd(options: any) {
   const {
     octoherdToken,
     octoherdCache = false,
@@ -38,7 +33,7 @@ export async function octoherd(options) {
 
   const tmpLogFile = temporaryFile({ extension: "ndjson.log" });
 
-  const plugins = [requestLog, requestConfirm];
+  const plugins: any = [requestLog, requestConfirm];
   if (typeof octoherdCache === "string") plugins.push(octokitCachePlugin);
   const CliOctokit = Octokit.plugin(...plugins);
 
@@ -51,7 +46,13 @@ export async function octoherd(options) {
           clientId: "e93735961b3b72ca5c02",
           clientType: "oauth-app",
           scopes: ["repo"],
-          async onVerification({ verification_uri, user_code }) {
+          async onVerification({
+            verification_uri,
+            user_code,
+          }: {
+            verification_uri: string;
+            user_code: string;
+          }) {
             console.log("Open %s", verification_uri);
 
             await clipboardy.write(user_code);
@@ -63,6 +64,7 @@ export async function octoherd(options) {
               )}\n`
             );
 
+            // @ts-ignore: initial switch to ts
             const prompt = new enquirer.Input({
               message: "Press <enter> when ready",
             });
@@ -79,7 +81,7 @@ export async function octoherd(options) {
     octoherd: {
       cache: octoherdCache,
       bypassConfirms: octoherdBypassConfirms,
-      onLogMessage(level, message, additionalData) {
+      onLogMessage(level: string, message: string, additionalData: any) {
         // ignore the `octoherd` property in meta data
         const { _octoherd, ...meta } = additionalData;
         let additionalDataString = JSON.stringify(meta);
@@ -95,7 +97,7 @@ export async function octoherd(options) {
             : message
         );
       },
-      onLogData(data) {
+      onLogData(data: any) {
         appendFileSync(tmpLogFile, JSON.stringify(data) + "\n");
       },
     },
