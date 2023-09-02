@@ -5,7 +5,6 @@
     "octokit/openapi-types": "npm:@octokit/openapi-types@^8.0.0",
     "chalk": "npm:chalk@^5.0.0",
     "clipboardy": "npm:clipboardy@^3.0.0",
-    "enquirer": "npm:enquirer@^2.3.6",
     "jsonfile": "npm:jsonfile@^6.0.1",
     "mkdirp": "npm:mkdirp@^3.0.0",
     "tempy": "npm:tempy@^3.0.0",

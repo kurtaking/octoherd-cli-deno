@@ -5,7 +5,7 @@ import { createOAuthDeviceAuth } from "octokit/auth-oauth-device";
 import chalk from "chalk";
 import { temporaryFile } from "tempy";
 import clipboardy from "clipboardy";
-import enquirer from "enquirer";
+import enquirer from "npm:enquirer@^2.3.6";
 
 import { cache as octokitCachePlugin } from "./lib/octokit-plugin-cache.js";
 import { requestLog } from "./lib/octokit-plugin-request-log.js";
