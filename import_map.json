@@ -9,8 +9,6 @@
     "jsonfile": "npm:jsonfile@^6.0.1",
     "mkdirp": "npm:mkdirp@^3.0.0",
     "tempy": "npm:tempy@^3.0.0",
-    "yargs": "npm:yargs@^17.0.0",
-    "yargs/helpers": "npm:yargs@^17.0.0/helpers",
     "octokit/openapi": "npm:octokit/openapi@^12.0.0",
     "prettier": "npm:prettier@^3.0.0"
   }
