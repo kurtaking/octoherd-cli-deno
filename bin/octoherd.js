@@ -1,19 +1,18 @@
-import yargs from "https://deno.land/x/yargs@v17.7.2-deno/deno.ts";
-import chalk from "chalk";
+import yargs from "yargs";
 
 import { octoherd } from "../index.js";
 import { VERSION } from "../version.js";
 import runCommand from "./commands/run.js";
 
-const EPILOG = chalk.gray(`Questions? Ideas? Feedback?
+const EPILOG = `Questions? Ideas? Feedback?
 https://github.com/octoherd/octoherd/discussions
 
-Copyright 2020-${new Date().getFullYear()} Octoherd Contributors`);
+Copyright 2020-${new Date().getFullYear()} Octoherd Contributors`;
 
-const argv = await yargs(Deno.args).command(runCommand).demandCommand().parse();
+const args = await yargs(Deno.args).command(runCommand).demandCommand().parse();
 
 try {
-  octoherd(argv);
+  octoherd(args);
 } catch (error) {
   console.error({ error });
   Deno.exit(1);
