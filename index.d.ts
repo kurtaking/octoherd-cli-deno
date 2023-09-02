@@ -1,6 +1,7 @@
-import { components } from "octokit/openapi-types";
+import { components } from "npm:octokit/openapi@^12.0.0";
 
-export { Octokit } from "@octoherd/octokit";
+export { Octokit } from "npm:@octoherd/octokit@^4.0.0";
+
 export type Repository = components["schemas"]["repository"];
 
 export type OctoherdOptions = {

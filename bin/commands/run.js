@@ -1,16 +1,11 @@
 import { resolve } from "node:path";
-
 import chalk from "npm:chalk@^5.0.0";
-import { VERSION as OctokitVersion } from "@octoherd/octokit";
-
 import { VERSION } from "../../version.js";
 
 const VERSIONS = `
 @octoherd/cli:     v${VERSION}
-@octoherd/octokit: v${OctokitVersion}
 Deno:              ${Deno.version.deno}`.trim();
 
-/** @type { {[key: string]: import("yargs").Options} } */
 const options = {
   "octoherd-script": {
     description: "Path to *.js script. Must be an ES Module.",
@@ -109,14 +104,12 @@ const runCommand = {
       }),
   handler: () => {
     console.log(
-      `\n${chalk.bold("Running @octoherd/cli v%s")} ${
-        chalk.gray(
-          "(@octoherd/octokit v%s, Deno: %s)",
-        )
-      }\n`,
+      `\n${chalk.bold("Running @octoherd/cli v%s")} ${chalk.gray(
+        "(@octoherd/octokit v%s, Deno: %s)"
+      )}\n`,
       VERSION,
       OctokitVersion,
-      Deno.version.deno,
+      Deno.version.deno
     );
   },
 };

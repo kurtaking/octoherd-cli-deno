@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
-import prettier from "prettier";
-import OpenAPI from "octokit/openapi";
+import prettier from "npm:prettier@^3.0.0";
+import OpenAPI from "npm:octokit/openapi@^12.0.0";
 
 const spec = OpenAPI.schemas["api.github.com.deref"];
 
