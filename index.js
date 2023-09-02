@@ -1,9 +1,6 @@
-import { appendFileSync } from "node:fs";
-
 import { Octokit } from "npm:@octoherd/octokit@^4.0.0";
 import { createOAuthDeviceAuth } from "npm:@octokit/auth-oauth-device@^6.0.0";
 import chalk from "npm:chalk@^5.0.0";
-import { temporaryFile } from "npm:tempy@^3.0.0";
 import clipboardy from "npm:clipboardy@^3.0.0";
 import enquirer from "npm:enquirer@^2.3.6";
 
@@ -36,7 +33,12 @@ export async function octoherd(options) {
     ...userOptions
   } = options;
 
-  const tmpLogFile = temporaryFile({ extension: "ndjson.log" });
+  // const tmpLogFile = temporaryFile({ extension: "ndjson.log" });
+  // const tmpLogFile = temporaryFile({ extension: "ndjson.log" });
+
+  const tmpLogFile = await Deno.makeTempFile({
+    suffix: "ndjson.log",
+  });
 
   const plugins = [requestLog, requestConfirm];
   if (typeof octoherdCache === "string") plugins.push(octokitCachePlugin);
@@ -96,7 +98,9 @@ export async function octoherd(options) {
         );
       },
       onLogData(data) {
-        appendFileSync(tmpLogFile, JSON.stringify(data) + "\n");
+        Deno.writeTextFile(tmpLogFile, JSON.stringify(data) + "\n", {
+          append: true,
+        });
       },
     },
   });
