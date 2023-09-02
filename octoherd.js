@@ -3,7 +3,6 @@ import { octoherd } from "./index.js";
 import runCommand from "./bin/commands/run.js";
 
 const args = await yargs(Deno.args).command(runCommand).demandCommand().parse();
-console.log({ args });
 
 try {
   octoherd(args);

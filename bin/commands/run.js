@@ -108,7 +108,6 @@ const runCommand = {
         "(@octoherd/octokit v%s, Deno: %s)"
       )}\n`,
       VERSION,
-      OctokitVersion,
       Deno.version.deno
     );
   },
