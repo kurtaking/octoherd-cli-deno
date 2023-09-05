@@ -1,7 +1,7 @@
 import { Octokit } from "npm:@octoherd/octokit@^4.0.0";
 import { createOAuthDeviceAuth } from "npm:@octokit/auth-oauth-device@^6.0.0";
 import chalk from "npm:chalk@^5.0.0";
-import clipboardy from "npm:clipboardy@^3.0.0";
+import * as clippy from "https://deno.land/x/clippy@v0.2.2/mod.ts";
 import enquirer from "npm:enquirer@^2.3.6";
 
 import { cache as octokitCachePlugin } from "./lib/octokit-plugin-cache.js";
@@ -53,7 +53,7 @@ export async function octoherd(options) {
           async onVerification({ verification_uri, user_code }) {
             console.log("Open %s", verification_uri);
 
-            await clipboardy.write(user_code);
+            await clippy.write_text(user_code);
             console.log("Paste code: %s (copied to your clipboard)", user_code);
 
             console.log(
