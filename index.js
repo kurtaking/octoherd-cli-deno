@@ -1,8 +1,10 @@
-import { Octokit } from "npm:@octoherd/octokit@^4.0.0";
-import { createOAuthDeviceAuth } from "npm:@octokit/auth-oauth-device@^6.0.0";
-import chalk from "npm:chalk@^5.0.0";
-import * as clippy from "https://deno.land/x/clippy@v0.2.2/mod.ts";
-import enquirer from "npm:enquirer@^2.3.6";
+import {
+  Octokit,
+  clippy,
+  createOAuthDeviceAuth,
+  chalk,
+  enquirer,
+} from "./deps.ts";
 
 import { cache as octokitCachePlugin } from "./lib/octokit-plugin-cache.js";
 import { requestLog } from "./lib/octokit-plugin-request-log.js";
