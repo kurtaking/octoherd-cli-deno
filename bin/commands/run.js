@@ -1,4 +1,4 @@
-import { resolve } from "node:path";
+import { resolve } from "https://deno.land/std@0.200.0/path/mod.ts";
 import chalk from "npm:chalk@^5.0.0";
 import { VERSION } from "../../version.js";
 

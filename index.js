@@ -33,9 +33,6 @@ export async function octoherd(options) {
     ...userOptions
   } = options;
 
-  // const tmpLogFile = temporaryFile({ extension: "ndjson.log" });
-  // const tmpLogFile = temporaryFile({ extension: "ndjson.log" });
-
   const tmpLogFile = await Deno.makeTempFile({
     suffix: "ndjson.log",
   });
