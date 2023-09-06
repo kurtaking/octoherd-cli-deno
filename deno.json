@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run -A octoherd.js run -S examples/script.ts -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'"
+    "dev": "deno run -A mod.ts run -S examples/script.ts -T $GITHUB_TOKEN -R 'kurtaking/octoherd-cli'",
+    "compile": "deno compile -A --unstable mod.ts"
   },
   "imports": {
     "/": "./",

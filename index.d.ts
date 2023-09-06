@@ -1,4 +1,4 @@
-import { components } from "npm:octokit/openapi@^12.0.0";
+import { components } from "npm:@octokit/openapi@^12.0.0";
 
 export { Octokit } from "npm:@octoherd/octokit@^4.0.0";
 
