@@ -1,6 +1,6 @@
 import {
   Octokit,
-  clippy,
+  clipboardy,
   createOAuthDeviceAuth,
   chalk,
   enquirer,
@@ -55,7 +55,7 @@ export async function octoherd(options) {
           async onVerification({ verification_uri, user_code }) {
             console.log("Open %s", verification_uri);
 
-            await clippy.write_text(user_code);
+            await clipboardy.write(user_code);
             console.log("Paste code: %s (copied to your clipboard)", user_code);
 
             console.log(
