@@ -1,6 +1,7 @@
 import { resolve } from "https://deno.land/std@0.200.0/path/mod.ts";
 import chalk from "npm:chalk@^5.0.0";
 import { VERSION } from "../../version.js";
+import { dynamicImport } from "https://deno.land/x/import@0.2.1/mod.ts";
 
 const VERSIONS = `
 @octoherd/cli:     v${VERSION}
@@ -83,11 +84,16 @@ const runCommand = {
         if (typeof script === "function") return script;
 
         let scriptModule;
-        const path = resolve(Deno.cwd(), script);
-        console.log({ path });
+        let path;
+
+        if (script.startsWith("http")) {
+          path = script;
+        } else {
+          path = resolve(Deno.cwd(), script);
+        }
 
         try {
-          scriptModule = await import(path);
+          scriptModule = await dynamicImport(path);
         } catch (error) {
           if (error.code === "ERR_MODULE_NOT_FOUND") {
             throw new Error(`[octoherd] ${path} does not exist`);
